@@ -1,0 +1,13 @@
+<h2>Statistiques plateforme</h2>
+
+<div *ngIf="stats">
+
+  <p>Total utilisateurs : {{stats.total_users}}</p>
+
+  <p>Jobs actifs : {{stats.active_jobs}}</p>
+
+  <p>Valeur totale échangée : {{stats.total_value_moved}}</p>
+
+</div>
+<!--Gestion d'erreurs-->
+<p *ngIf="message"> {{message}} </p>

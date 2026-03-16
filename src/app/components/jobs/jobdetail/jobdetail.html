@@ -1,0 +1,65 @@
+<div *ngIf="job">
+
+  <h2>{{job.title}}</h2>
+
+  <p>{{job.description}}</p>
+
+  <p><strong>Budget:</strong> {{job.budget}}</p>
+
+  <p><strong>Category:</strong> {{job.category}}</p>
+
+  <h3>Owner</h3>
+  <p>{{job.owner?.username}}</p>
+
+  <h3>Freelancer</h3>
+  <p>{{job.freelancer?.username || 'Non assigné'}}</p>
+
+</div>
+
+<!--Section Propositions -->
+<div *ngFor="let proposal of proposals">
+  <h3>Propositions reçues</h3>
+  <p>
+    <strong>Freelance :</strong> {{proposal.freelancer?.username}}
+  </p>
+
+  <p>
+    <strong>Prix proposé :</strong> {{proposal.price}}
+  </p>
+
+  <p>
+    <strong>Message :</strong> {{proposal.cover_letter}}
+  </p>
+  <!-- bouton accepter -->
+  <button (click)="acceptProposal(proposal.id)"> Accepter cette proposition </button>
+
+  <div *ngIf="job.status === 'in_progress'">
+  <button (click)="completeJob()"> Marquer le job comme complété </button>
+  </div>
+
+   <!-- formulaire pour les Avis -->
+  <div *ngIf="job.status == 'completed'">
+
+  <h3>Laisser un avis</h3>
+
+  <form (ngSubmit)="submitReview()">
+
+    <label>Note(1 à 5)</label>
+
+    <input type="number"
+           min="1"
+           max="5"
+           [(ngModel)]="review.rating"
+           name="rating">
+
+    <button type="submit">
+      Envoyer review
+    </button>
+  </form>
+  </div>
+    <!--Gestion d'erreurs-->
+    <p *ngIf="message">
+    {{ message }}
+    </p>
+  <hr>
+</div>

@@ -1,0 +1,22 @@
+<h2>Toutes les jobs disponibles</h2>
+
+<div *ngFor="let job of jobs">
+
+  <h3>{{job.title}}</h3>
+
+  <p>{{job.description}}</p>
+
+  <p>Budget : {{job.budget}}</p>
+
+  <p>Catégorie : {{job.category}}</p>
+
+  <!-- bouton pour ouvrir la page détail du job -->
+  <!-- routerLink va naviguer vers /jobs/ID_DU_JOB -->
+  <a [routerLink]="['/jobs', job.id]">
+    Voir les détails de tes jobs
+  </a>
+  <!--Gestion d'erreurs-->
+  <p *ngIf="message"> {{message}} </p>
+  </div>
+
+

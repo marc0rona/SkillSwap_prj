@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Inscription</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Nom" formControlName="name">
+    <input type="text" placeholder="Nom d'utilisateur" formControlName="username">
+    <input type="email" placeholder="Email" formControlName="email">
+    <input type="password" placeholder="Mot de passe" formControlName="password">
+    <textarea placeholder="Bio" formControlName="bio"></textarea>
+    <input type="text" placeholder="Skills (Angular, PHP, Java)" formControlName="skills">
+
+    <button type="submit">S'inscrire</button>
+  </form>
+
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div *ngIf="suggestedUsername" class="suggestion">
+    <p>Nom suggéré : <strong>{{ suggestedUsername }}</strong></p>
+    <button type="button" (click)="applySuggestedUsername()">Utiliser ce username</button>
+  </div>
+
+  <p>Déjà inscrit ? <a routerLink="/login">Se connecter</a></p>
+</div>
