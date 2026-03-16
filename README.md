@@ -1,3 +1,5 @@
+Equipe : Marco-Andres Mora - 2332530, Ali Bakkali - 202334811, Mouad Elgholabzouri - 2413180
+
 # SkillSwapProjet
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
